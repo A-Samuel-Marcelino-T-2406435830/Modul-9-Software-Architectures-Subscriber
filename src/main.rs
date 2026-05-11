@@ -1,4 +1,4 @@
-use std::time;
+use std::{thread, time};
 
 use borsh::{BorshDeserialize, BorshSerialize};
 use crosstown_bus::{CrosstownBus, HandleError, MessageHandler};
@@ -18,10 +18,10 @@ impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
     }
 
     fn handle(&self, message: Box<UserCreatedEventMessage>) -> Result<(), HandleError> {
-        let ten_millis = time::Duration::from_millis(1000);
-        let now = time::Instant::now();
+        let _ten_millis = time::Duration::from_millis(1000);
+        let _now = time::Instant::now();
 
-        // thread::sleep(ten_millis);
+        thread::sleep(_ten_millis);
 
         println!("In Samuel's Computer [2406435830]. Message received: {:?}", message);
         Ok(())
